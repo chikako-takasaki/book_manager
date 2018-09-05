@@ -20,4 +20,18 @@ class IndexView(generic.ListView):
       created_at__lte=timezone.now()
     ).order_by('-created_at')[:5]
 
+class DetailView(generic.DetailView):
+  model = Book
+  template_name = 'book_manager/detail.html'
+
+  def get_queryset(self):
+    """
+    Excludes any questions that aren't published yet.
+    """
+    return Book.objects.filter(created_at__lte=timezone.now())
+
+class ResultsView(generic.DetailView):
+  model = Book
+  template_name = 'book_manager/results.html'
+
 

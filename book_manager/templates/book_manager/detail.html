@@ -1,0 +1,7 @@
+<h1>{{ book.title }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'book_manager:results' book.id %}" method="post">
+{% csrf_token %}
+</form>

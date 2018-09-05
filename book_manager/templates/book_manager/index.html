@@ -2,9 +2,9 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'book_manager/style.css' %}"/>
 
-{% if latest_question_list %}
+{% if latest_book_list %}
   <ul>
-  {% for question in latest_book_list %}
+  {% for book in latest_book_list %}
     <li><a href="{% url 'book_manager:detail' book.id %}">{{ book.title }}</a></li>
   {% endfor %}
   </ul>

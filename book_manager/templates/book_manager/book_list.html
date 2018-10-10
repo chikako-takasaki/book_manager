@@ -1,9 +1,13 @@
-<html>
-  <head>
-   <title>Ola's blog</title>
-  </head>
-  <body>
-    <p>Hi there!</p>
-    <p>It works!</p>
-  </body>
-</html>
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+
+{% if latest_book_list %}
+  <ul>
+  {% for book in latest_book_list %}
+    <li><a href="{% url 'book_manager:detail' book.id %}">{{ book.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No book is available.</p>
+{% endif %}

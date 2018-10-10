@@ -1,0 +1,15 @@
+{% extends "register/base.html" %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <li>
+      <a href="{% url 'book_manager:logout' %}">ログアウト</a>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a href="{% url 'book_manager:login' %}">ようこそ、ゲスト！ログインはこちら</a>
+    </li>
+  {% endif %}
+ 
+<p>ここに、好きな内容を入れる。</p>
+{% endblock %}
+

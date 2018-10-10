@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^sample_polls/', include('sample_polls.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^book_manager/', include('book_manager.urls')),
+    url('^', include('django.contrib.auth.urls')),
 ]

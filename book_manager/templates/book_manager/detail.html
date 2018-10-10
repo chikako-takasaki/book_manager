@@ -1,7 +1,23 @@
+{% load staticfiles %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+</head>
+  
 <h1>{{ book.title }}</h1>
+<h4>著者：{{ book.author }}</h4>
+<h4>出版社：{{ book.publisher }}</h4>
+{% if book.is_borrowed == True %}
+  <p><strong>貸出中</strong></p>
+  <a href="{% url 'book_manager:return_book' book.id %}" class="btn btn-primary">返却する</a></br>
+{% else %}
+  <p>貸出可</p>
+  <a href="{% url 'book_manager:borrow' book.id %}" class="btn btn-primary">借りる</a></br>
+{% endif %}
+<img src="{{ book.image_url }}"/></br> 
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'book_manager:results' book.id %}" method="post">
 {% csrf_token %}
 </form>
+<a href="{% url 'book_manager:book_list' %}" class="btn btn-primary">一覧に戻る</a>
+

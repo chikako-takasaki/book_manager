@@ -17,7 +17,6 @@ class BookForm(forms.ModelForm):
     }
 
 class LoginForm(AuthenticationForm):
-  """ログインフォーム"""
   
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)

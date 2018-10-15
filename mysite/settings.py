@@ -133,6 +133,5 @@ STATICFILES_DIRS = (
   os.path.join(BASE_DIR, 'static'),
 )
 
-# ログイン後トップページにリダイレクト
 LOGIN_URL = 'book_manager:login'
 LOGIN_REDIRECT_URL = 'book_manager:book_index'

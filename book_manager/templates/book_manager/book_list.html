@@ -1,5 +1,7 @@
-{% load staticfiles %}
+{% extends "register/base.html" %}
 
+{% block content %}
+{% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
 
 {% if latest_book_list %}
@@ -11,3 +13,4 @@
 {% else %}
   <p>No book is available.</p>
 {% endif %}
+{% endblock %}

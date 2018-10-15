@@ -1,6 +1,9 @@
+{% extends "register/base.html" %}
+{% block content %}
 {% load staticfiles %}
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
 </head>
 <li><a href="{% url 'book_manager:book_list'%}">Book List</a></li>
-<li><a href="{% url 'book_manager:register'%}">Book Register Form</a></li>
+<li><a href="{% url 'book_manager:book_register'%}">Book Register Form</a></li>
+{% endblock %}

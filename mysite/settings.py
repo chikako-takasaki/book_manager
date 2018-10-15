@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts.apps.AccountsConfig',
     'sample_polls.apps.SamplePollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -126,5 +125,5 @@ STATICFILES_DIRS = (
 )
 
 # ログイン後トップページにリダイレクト
-LOGIN_URL = 'register:login'
-LOGIN_REDIRECT_URL = 'register:top'
+LOGIN_URL = 'book_manager:login'
+LOGIN_REDIRECT_URL = 'book_manager:book_index'

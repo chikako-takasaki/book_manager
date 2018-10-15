@@ -1,14 +1,18 @@
+{% extends "register/base.html" %}
+
+{% block content %}
 {% load staticfiles %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
 <h3>本を登録する</h3>
-<form action="{% url 'book_manager:register' %}" method="post">
+<form action="{% url 'book_manager:book_register' %}" method="post">
   {{ form.errors.message }}
   <ul>{{ form.title.label }}{{ form.title }}</ul>
   <ul>{{ form.author.label }}{{ form.author }}</ul>
   <ul>{{ form.publisher.label }}{{ form.publisher }}</ul>
   <ul>{{ form.image_url.label }}{{ form.image_url }}</ul>
   {% csrf_token %}
+  <button class="btn btn-outline-default" href = "{% url 'book_manager:book_index' %}">戻る</button>
   <button class="btn btn-outline-danger btn-sm del_confirm" data-toggle="modal" data-target="#registerModal" type="submit">登録</button>
 </form>
 {# 登録を確認するモーダル ダイアログ #}
@@ -31,3 +35,4 @@
     </div>
   </div>
 </div>
+{% endblock %}

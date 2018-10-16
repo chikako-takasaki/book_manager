@@ -19,7 +19,7 @@ class BookForm(forms.ModelForm):
 class LoginForm(AuthenticationForm):
   
   def __init__(self, *args, **kwargs):
-    super(LoginForm).__init__(*args, **kwargs)
+    super(LoginForm, self).__init__(*args, **kwargs)
     for field in self.fields.values():
       field.widget.attrs['class'] = 'form-control'
       field.widget.attrs['placeholder'] = field.label

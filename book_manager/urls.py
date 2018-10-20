@@ -1,6 +1,8 @@
 from django.conf.urls import url, include
 from . import views
 from django.contrib import admin
+from material.frontend import urls as frontend_urls
+
 
 app_name = 'book_manager'
 urlpatterns = [

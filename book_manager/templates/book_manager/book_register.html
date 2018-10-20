@@ -12,7 +12,7 @@
   <ul>{{ form.publisher.label }}{{ form.publisher }}</ul>
   <ul>{{ form.image_url.label }}{{ form.image_url }}</ul>
   {% csrf_token %}
-  <button class="btn btn-outline-default" href = "{% url 'book_manager:book_index' %}">戻る</button>
+  <button class="btn btn-outline-normal" href = "{% url 'book_manager:book_index' %}">戻る</button>
   <button class="btn btn-outline-danger btn-sm del_confirm" data-toggle="modal" data-target="#registerModal" type="submit">登録</button>
 </form>
 {# 登録を確認するモーダル ダイアログ #}

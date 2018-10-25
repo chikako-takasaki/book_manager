@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_slack',
     'jet',
     'jet.dashboard',
     'sample_polls.apps.SamplePollsConfig',
@@ -138,3 +139,31 @@ STATICFILES_DIRS = (
 
 LOGIN_URL = 'book_manager:login'
 LOGIN_REDIRECT_URL = 'book_manager:book_index'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+      'require_debug_false': {
+        '()': 'django.utils.log.RequireDebugFalse',
+      },
+    },
+    'handlers': {
+      'slack_admins': {
+        'level': 'ERROR',
+        'filters': ['require_debug_false'],
+        'class': 'django_slack.log.SlackExceptionHandler',
+      },
+    },
+    'loggers': {
+      'django': {
+        'level': 'ERROR',
+        'handlers': ['slack_admins'],
+      },
+    },
+}
+
+SLACK_TOKEN = 'xoxp-66767448195-318184639810-460404525520-c0b9884a4d1eca6229079643901341ef'
+SLACK_CHANNEL = '@Chikako Takasaki'
+SLACK_USERNAME = 'Django Slack'
+SLACK_FAIL_SILENTLY = True

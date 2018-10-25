@@ -61,7 +61,7 @@ class BookRegisterView(LoginRequiredMixin, generic.ListView):
       created_at__lte=timezone.now()
     ).order_by('-created_at')[:5]
 
-class BookSearchView(LoginRequired_Mixin, generic.ListView):
+class BookSearchView(LoginRequiredMixin, generic.ListView):
   template_name = 'book_manager/book_search.html'
 
 

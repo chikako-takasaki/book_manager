@@ -1,6 +1,6 @@
 certifi==2018.10.15
 chardet==3.0.4
-Django==1.11.16
+Django==1.11.23
 django-jet==1.0.8
 django-slack==5.12.1
 idna==2.7
